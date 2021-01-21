@@ -1,0 +1,135 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head> 
+    <style>
+#teste{
+  background-color: lightgrey;
+  width: 600px;
+  border: solid #E1ADEE;
+  padding: 50px;
+  margin: 20px;
+    position: relative;
+ left: 5px;
+    
+}
+        
+        #bt{
+            border: solid #B24ECD;
+  background-color: #E1ADEE;
+            color:#B24ECD;
+    position: absolute;
+ left: 250px;
+            border-radius: 12px;
+    
+}
+        
+        #bt:hover {
+  background-color: white; 
+  color: #E1ADEE;
+            border: solid #B24ECD;
+}
+</style>
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>  
+<body style="background-color:#EFDAF5;">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/show">Ayano</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/show">Equipamentos Móveis</a></li>
+        <li><a href="/showf">Equipamentos Fixos</a></li>
+      <li><a href="/showMan">Manutenção</a></li>
+        <li><a href="/showAloc">Alocados</a></li>
+        <li><a href="/logout/">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron text-center" style="background-color:#E1ADEE;">
+  <h1 style="font:60px Arial;">Ayano Solutions</h1>
+  <p>Atualização de Equipamentos Móveis</p> 
+</div>
+<form method="POST" class="post-form" action="/update/{{equipamento.id}}">  
+        {% csrf_token %}
+    
+    <br><div id ='teste' class="container center-block" style="margin: 0 auto;">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-md-12 col-form-label"></label>  
+    <div class="col-md-12">  
+    <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Detalhes da Atualização</h3><br>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Código do Equipamento:</label>  
+    <div class="col-sm-8">  
+        <input type="text" class="form-control" name="eid" id="id_eid" required maxlength="20" value="{{ equipamento.eid }}"/>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Descrição:</label>  
+    <div class="col-sm-8">  
+        <input type="text" class="form-control" name="ename" id="id_ename" required maxlength="100" value="{{ equipamento.ename }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Fornecedor:</label>  
+    <div class="col-sm-8">  
+        <input type="Text" class="form-control" name="efornecedor" id="id_efornecedor" required maxlength="254" value="{{ equipamento.efornecedor }}" />  
+    </div>  
+  </div>
+        <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Área:</label>  
+    <div class="col-sm-8">  
+        <input type="Text" class="form-control"name="earea" id="id_earea" required maxlength="254" value="{{ equipamento.earea }}" />  
+    </div>  
+  </div> 
+        <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Status:</label>  
+    <div class="col-sm-8">  
+        <input type="Text" class="form-control" name="estatus" id="id_estatus" required maxlength="254" value="{{ equipamento.estatus }}" />  
+    </div>  
+  </div> 
+        <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Quantidade:</label>  
+    <div class="col-sm-8">  
+        <input type="Text" class="form-control" name="eqtd" id="id_eqtd" required maxlength="254" value="{{ equipamento.eqtd }}" />  
+    </div>  
+  </div>
+    <div class="form-group row">  
+    <label class="col-sm-4 col-form-label">Data de Compra:</label>  
+    <div class="col-sm-8">  
+        <input type="date" class="form-control" name="edataC" id="id_edataC" value="{{ equipamento.edataC }}" />  
+    </div>  
+  </div> <br> 
+    <div class="form-group row">  
+    <label class="col-sm-5 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Atualizar</button>  
+    </div>  
+  </div>  
+    </div>  
+        
+</form><br><br>
+    <footer style="background-color:#E1ADEE;" class="page-footer font-small blue pt-4">
+  <div class="container-fluid text-center text-md-left">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <h5 class="text-uppercase">Desenvolvido por:</h5>
+        <p>Gleyce Andrade<br>Lucas Alves<br>Lucas Amaral<br>Mayara Andrade</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <label> Ayano Solutions.</label>
+  </div>
+</footer>
+</body>  
+</html> 

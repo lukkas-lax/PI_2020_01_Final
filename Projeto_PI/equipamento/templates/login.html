@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+#teste{
+  background-color: lightgrey;
+  width: 600px;
+  border: solid #E1ADEE;
+  padding: 50px;
+  margin: 20px;
+    position: absolute;
+ left: 360px;
+    
+}
+        
+        #bt{
+            border: solid #B24ECD;
+  background-color: #E1ADEE;
+            color:#B24ECD;
+    position: absolute;
+ left: 250px;
+            border-radius: 12px;
+    
+}
+        
+        #bt:hover {
+  background-color: white; 
+  color: #E1ADEE;
+            border: solid #B24ECD;
+}
+</style>
+  <title>Ayano Solutions - Login</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color:#EFDAF5;">
+
+<div class="jumbotron text-center" style="background-color:#E1ADEE;">
+  <h1 style="font:60px Arial;">Ayano Solutions</h1>
+  <p>The perfect solution for you!</p> 
+</div>
+  
+<div class="container" style="background-color:#EFDAF5;">
+    <div id ='teste' class="container sm-6">
+        <form action = "submit", method = "POST">
+            {% csrf_token %} 
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text", class="form-control" id="username" name="username" placeholder="Username">
+                
+            </div>
+            <div class="form-group">
+                <label  for="username">Senha</label>
+                <input type="password", class="form-control" id="password" name="password" placeholder="Senha">
+                
+            </div>
+            
+            <div>
+                {% for message in messages %}
+                <div class="alert alert-warning">
+                    <strong>Warning!</strong> {{message}}
+                </div>
+                {% endfor %}
+            <button type="submit" id = 'bt' class="btn btn-success">Entrar</button>
+            </div>
+            
+            
+        </form>
+        
+    </div>
+</div>
+    
+
+</body>
+</html>
